@@ -1,1 +1,29 @@
+name: CI/CD Pipeline
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v2
+        with:
+          xcode-version: '12.x' # Replace with your desired Xcode version
+
+      - name: Install dependencies
+        run: |
+          # Example: Install CocoaPods
+          sudo gem install cocoapods
+          pod install
+
+      - name: Build and test
+        run: |
+          xcodebuild clean test -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
