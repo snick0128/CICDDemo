@@ -12,6 +12,7 @@
 		AE1C17E82B58E6E20042123B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1C17E62B58E6E20042123B /* Main.storyboard */; };
 		AE1C17EA2B58E6E50042123B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE1C17E92B58E6E50042123B /* Assets.xcassets */; };
 		AE1C17ED2B58E6E50042123B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE1C17EB2B58E6E50042123B /* LaunchScreen.storyboard */; };
+		AE1C17F72B5928070042123B /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE1C17F62B5928070042123B /* ExportOptions.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +23,7 @@
 		AE1C17E92B58E6E50042123B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE1C17EC2B58E6E50042123B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE1C17EE2B58E6E50042123B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE1C17F52B5923BD0042123B /* DemoCiCd.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DemoCiCd.xctestplan; sourceTree = "<group>"; };
+		AE1C17F62B5928070042123B /* ExportOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +40,6 @@
 		AE1C17D42B58E6E20042123B = {
 			isa = PBXGroup;
 			children = (
-				AE1C17F52B5923BD0042123B /* DemoCiCd.xctestplan */,
 				AE1C17DF2B58E6E20042123B /* DemoCiCd */,
 				AE1C17DE2B58E6E20042123B /* Products */,
 			);
@@ -62,6 +62,7 @@
 				AE1C17E92B58E6E50042123B /* Assets.xcassets */,
 				AE1C17EB2B58E6E50042123B /* LaunchScreen.storyboard */,
 				AE1C17EE2B58E6E50042123B /* Info.plist */,
+				AE1C17F62B5928070042123B /* ExportOptions.plist */,
 			);
 			path = DemoCiCd;
 			sourceTree = "<group>";
@@ -127,6 +128,7 @@
 				AE1C17ED2B58E6E50042123B /* LaunchScreen.storyboard in Resources */,
 				AE1C17EA2B58E6E50042123B /* Assets.xcassets in Resources */,
 				AE1C17E82B58E6E20042123B /* Main.storyboard in Resources */,
+				AE1C17F72B5928070042123B /* ExportOptions.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
