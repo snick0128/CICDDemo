@@ -1,4 +1,4 @@
-name: CI
+name: Check Xcode Version
 
 on:
   push:
@@ -6,13 +6,10 @@ on:
       - main
 
 jobs:
-  build:
+  check-xcode-version:
     runs-on: macOS-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Build and test
+      - name: Check Xcode version
         run: |
-          xcodebuild clean test -project DemoCiCd.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12'
+          xcodebuild -version
