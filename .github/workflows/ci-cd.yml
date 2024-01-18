@@ -15,10 +15,10 @@ jobs:
 
       - name: Build
         run: |
-          xcodebuild clean build -project DemoCiCd.xcodeproj -scheme DemoCiCd -configuration Release -sdk iphoneos -allowProvisioningUpdates
+          xcodebuild clean build -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
 
       - name: Upload App Bundle
         uses: actions/upload-artifact@v2
         with:
           name: DemoCiCd
-          path: build/Release-iphoneos/DemoCiCd.app
+          path: build/Release-iphonesimulator/DemoCiCd.app
