@@ -1,4 +1,4 @@
-name: Build and Download Ad-Hoc App
+name: Build and Download App
 
 on:
   push:
@@ -6,33 +6,19 @@ on:
       - main
 
 jobs:
-  build-and-download-adhoc:
+  build-and-download:
     runs-on: macOS-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Xcode
-        uses: actions/setup-xcode@v2
-        with:
-          xcode-version: '13.2' # Replace with your desired Xcode version
-
-      - name: Install CocoaPods dependencies
-        run: |
-          cd path/to/your/project
-          pod install
-
       - name: Build
         run: |
-          xcodebuild clean build -project DemoCiCd.xcodeproj -configuration Release -destination 'generic/platform=iOS'
-
-      - name: Create IPA
-        run: |
-          xcodebuild -exportArchive -archivePath build/DemoCiCd.xcarchive -exportPath build -exportOptionsPlist ExportOptions.plist
+          xcodebuild clean build -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
 
       - name: Upload App Bundle
         uses: actions/upload-artifact@v2
         with:
           name: DemoCiCd
-          path: build/DemoCiCd.ipa
+          path: build/Release-iphonesimulator/DemoCiCd.app
