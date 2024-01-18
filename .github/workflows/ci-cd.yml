@@ -13,11 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Xcode
-        uses: maxim-lobanov/setup-xcode@v1.6.0
+      - name: Setup XcodeGen
+        uses: nightstory/setup-xcodegen@v1
         with:
-          xcode-version: '14.2'  # Replace with your desired Xcode version
-
+          enable-cache: true  
+          version: '2.24.0'
       - name: Build and test
         run: |
           xcodebuild clean test -workspace DemoCiCd.xcworkspace -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
