@@ -1,4 +1,4 @@
-name: CI
+name: Build and Download App
 
 on:
   push:
@@ -6,13 +6,27 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-download:
     runs-on: macOS-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build and test
+      - name: Build
         run: |
-          xcodebuild clean test -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
+          xcodebuild clean build -project DemoCiCd.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12'
+      
+      - name: Archive
+        run: |
+          xcodebuild archive -project DemoCiCd.xcodeproj -archivePath build/DemoCiCd.xcarchive
+
+      - name: Create IPA
+        run: |
+          xcodebuild -exportArchive -archivePath build/DemoCiCd.xcarchive -exportPath build -exportOptionsPlist ExportOptions.plist
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: DemoCiCd
+          path: build/DemoCiCd.ipa
