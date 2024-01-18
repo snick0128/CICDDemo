@@ -17,12 +17,8 @@ jobs:
         run: |
           xcodebuild clean build -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
 
-      - name: Create IPA
-        run: |
-          xcodebuild -exportArchive -archivePath build/DemoCiCd.xcarchive -exportPath build
-
-      - name: Upload Artifact
+      - name: Upload IPA
         uses: actions/upload-artifact@v2
         with:
           name: DemoCiCd
-          path: build/DemoCiCd.ipa
+          path: build/Release-iphonesimulator/DemoCiCd.app
