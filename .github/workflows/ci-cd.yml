@@ -15,7 +15,7 @@ jobs:
 
       - name: Build
         run: |
-          xcodebuild clean build -project DemoCiCd.xcodeproj -configuration Release
+          xcodebuild clean build -project DemoCiCd.xcodeproj -configuration Release -allowProvisioningUpdates
 
       - name: Upload App Bundle
         uses: actions/upload-artifact@v2
