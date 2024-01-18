@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Basic Exapmle of CI/CD")
+        print("Basic Exapmle of CI/CD")
+        print("Basic Exapmle of CI/CD")
         // Do any additional setup after loading the view.
     }
 
