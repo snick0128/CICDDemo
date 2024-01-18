@@ -1,4 +1,4 @@
-name: Check Xcode Version
+name: CI
 
 on:
   push:
@@ -6,10 +6,23 @@ on:
       - main
 
 jobs:
-  check-xcode-version:
-    runs-on: macOS-latest
+  build:
+    runs-on: macos-latest
 
     steps:
-      - name: Check Xcode version
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Xcode
+        uses: actions/setup-xcode@v1.6.0
+        with:
+          xcode-version: '14.2'  # Replace with your desired Xcode version
+
+      - name: Install dependencies
         run: |
-          xcodebuild -version
+          gem install bundler
+          bundle install
+
+      - name: Build and test
+        run: |
+          xcodebuild clean test -project YourProject.xcodeproj -scheme YourScheme -destination 'platform=iOS Simulator,name=iPhone 12'
