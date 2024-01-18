@@ -19,7 +19,7 @@ jobs:
 
       - name: Create IPA
         run: |
-          xcodebuild -exportArchive -archivePath build/DemoCiCd.xcarchive -exportPath build -exportOptionsPlist ExportOptions.plist -allowProvisioningUpdates
+          xcodebuild -exportArchive -archivePath build/DemoCiCd.xcarchive -exportPath build
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
