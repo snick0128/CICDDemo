@@ -15,11 +15,7 @@ jobs:
 
       - name: Build
         run: |
-          xcodebuild clean build -project DemoCiCd.xcodeproj -configuration Release -allowProvisioningUpdates
-          env:
-            DEVELOPER_DIR: /Applications/Xcode_13.2.1.app/Contents/Developer
-            FASTLANE_USER: ${{ secrets.APPLE_ID }}
-            FASTLANE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}s
+          xcodebuild clean build -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
 
       - name: Upload App Bundle
         uses: actions/upload-artifact@v2
