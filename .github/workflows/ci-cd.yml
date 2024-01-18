@@ -15,11 +15,7 @@ jobs:
 
       - name: Build
         run: |
-          xcodebuild clean build -project DemoCiCd.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12'
-      
-      - name: Archive
-        run: |
-          xcodebuild archive -project DemoCiCd.xcodeproj -archivePath build/DemoCiCd.xcarchive
+          xcodebuild clean build -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
 
       - name: Create IPA
         run: |
