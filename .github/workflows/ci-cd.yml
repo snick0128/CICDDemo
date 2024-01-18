@@ -15,4 +15,4 @@ jobs:
 
       - name: Build and test
         run: |
-          xcodebuild clean test -project YourProject.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12'
+          xcodebuild clean test -project DemoCiCd.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 12'
