@@ -18,23 +18,10 @@ jobs:
         with:
           xcode-version: '14.2'  # Replace with your desired Xcode version
 
-      - name: Install dependencies
-        run: |
-          # Example: Install CocoaPods
-          sudo gem install cocoapods
-          pod install
-
       - name: Build and test
         run: |
           xcodebuild clean test -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
 
-      - name: Archive and package app (if needed)
+      - name: Print "Hello, World!"
         run: |
-          xcodebuild archive -project DemoCiCd.xcodeproj -scheme DemoCiCd -archivePath DemoCiCd.xcarchive
-          xcodebuild -exportArchive -archivePath DemoCiCd.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath ./build
-
-      - name: Deploy to App Store (example)
-        run: |
-          # Replace this with your actual deployment steps, e.g., uploading to App Store Connect
-          # This is just an example and may not be suitable for your deployment process
-          echo "Deploying to App Store Connect..."
+          echo "Hello, World!"
