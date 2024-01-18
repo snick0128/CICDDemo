@@ -16,7 +16,7 @@ jobs:
       - name: Set up Xcode
         uses: actions/setup-xcode@v2
         with:
-          xcode-version: '13.0' # Replace with your desired Xcode version
+          xcode-version: '12.x'  # Replace with your desired Xcode version
 
       - name: Install dependencies
         run: |
@@ -27,3 +27,14 @@ jobs:
       - name: Build and test
         run: |
           xcodebuild clean test -project DemoCiCd.xcodeproj -scheme DemoCiCd -destination 'platform=iOS Simulator,name=iPhone 12'
+
+      - name: Archive and package app (if needed)
+        run: |
+          xcodebuild archive -project DemoCiCd.xcodeproj -scheme DemoCiCd -archivePath DemoCiCd.xcarchive
+          xcodebuild -exportArchive -archivePath DemoCiCd.xcarchive -exportOptionsPlist ExportOptions.plist -exportPath ./build
+
+      - name: Deploy to App Store (example)
+        run: |
+          # Replace this with your actual deployment steps, e.g., uploading to App Store Connect
+          # This is just an example and may not be suitable for your deployment process
+          echo "Deploying to App Store Connect..."
