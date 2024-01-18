@@ -15,12 +15,10 @@ jobs:
 
       - name: Build
         run: |
-          xcodebuild clean build -project DemoCiCd.xcodeproj -scheme DemoCiCd -configuration Release -sdk iphoneos
-          xcodebuild archive -project DemoCiCd.xcodeproj -scheme DemoCiCd -configuration Release -archivePath build/DemoCiCd.xcarchive
-          xcodebuild -exportArchive -archivePath build/DemoCiCd.xcarchive -exportPath build -exportOptionsPlist ExportOptions.plist
+          xcodebuild clean build -project DemoCiCd.xcodeproj -scheme DemoCiCd -configuration Release -sdk iphoneos -allowProvisioningUpdates
 
-      - name: Upload IPA
+      - name: Upload App Bundle
         uses: actions/upload-artifact@v2
         with:
           name: DemoCiCd
-          path: build/DemoCiCd.ipa
+          path: build/Release-iphoneos/DemoCiCd.app
